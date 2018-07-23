@@ -1,0 +1,32 @@
+<div class="container">
+    <h2>Lobby</h2>
+    <br>
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" data-toggle="tab" href="#room1">Room 1</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#room2">Room 2</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#room3">Room 3</a>
+      </li>
+    </ul>
+  
+    <!-- Tab panes -->
+    <div class="tab-content">
+      <div id="room1" class="container tab-pane active"><br>
+        <h3>room 1</h3>
+        <app-chatroom [messages_room]="messages_room1" [roomNumber]="1"></app-chatroom>
+      </div>
+      <div id="room2" class="container tab-pane fade"><br>
+        <h3>room 2</h3>
+        <app-chatroom [messages_room]="messages_room2" [roomNumber]="2"></app-chatroom>
+      </div>
+      <div id="room3" class="container tab-pane fade"><br>
+        <h3>room 3</h3>
+        <app-chatroom [messages_room]="messages_room3" [roomNumber]="3"></app-chatroom>
+      </div>
+    </div>
+  </div>

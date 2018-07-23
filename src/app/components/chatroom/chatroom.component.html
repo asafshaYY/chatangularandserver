@@ -1,0 +1,55 @@
+<div class="container-fluid chat-container">
+    <div class="row h-100">
+        <div class="col d-flex p-0">
+            <div class="card">
+                <div class="card-body bg-lightgrey d-flex flex-column p-0" style="flex: 9 1">
+                    <div class="container-fluid message-scroll" style="flex: 1 1">
+                      change font size : 
+                      <button class="btn btn-warning mr-3" (click)="ReduceFontSize()">-</button>
+                      <button class="btn btn-success" (click)="AddFontSize()">+</button>
+                      <div *ngFor="let message of messages_room" [style.font-size.px]="userFontSize">
+                        <div class="row" *ngIf="data.currentUserId == message.userId">
+                            <div class="card message-card m-1">
+                                <div class="card-body p-2">
+                                  <span>
+                                      [{{message.nickname}}]-[{{message.date | date}}] : 
+                                  </span>
+                                    <span class="mx-2" [style.color]="'#' + message.color">
+                                        {{message.message}} </span>
+                                    <span class="float-right mx-1">
+                                      <small><button class="btn" (click)="Delete(message.messageId)" type="button">X</button>
+                                        <i class="fas fa-eye fa-fw" style="color:#e64980"></i>
+                                      </small>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row justify-content-end" *ngIf="data.currentUserId != message.userId">
+                            <div class="card message-card bg-lightblue m-1">
+                                <div class="card-body p-2">
+                                    <span>
+                                        [{{message.nickname}}]-[{{message.date | date}}] : 
+                                    </span>
+                                    <span class="mx-2" [style.color]="'#' + message.color">
+                                        {{message.message}} </span>
+                                    <span class="float-right mx-1">
+                                    <small><button class="btn" (click)="Delete(message.messageId)" type="button">X</button>
+                                        <i class="fas fa-eye fa-fw" style="color:#e64980"></i>
+                                    </small>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                        
+                    </div>
+                    <div class="input-group">
+                          <input #newMessage type="text" class="form-control border-0" placeholder="Input message...">
+                          <button type="button" class="btn btn-primary" (click)="SendMessage(newMessage.value); newMessage.value=''">Send</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- row -->
+</div>
